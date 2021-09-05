@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                tools:context=".ui.search.SearchActivity">
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="240dp"
+                    android:layout_height="280dp"
+                    android:scaleType="centerCrop"
+                    android:transitionName="image"
+                    app:image="@{item.image}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <RatingBar
+                    android:id="@+id/ratingbar"
+                    style="@style/Widget.AppCompat.RatingBar.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:numStars="5"
+                    android:progressTint="@color/colorPrimaryVariant"
+                    android:rating="@{Float.parseFloat(item.rating)}"
+                    app:layout_constraintBottom_toBottomOf="@+id/priceTextView"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/priceTextView"
+                    tools:rating="4" />
+
+                <TextView
+                    android:id="@+id/yearTextView"
+                    style="@style/text.light"
+                    android:layout_width="0dp"
+                    android:text="@{item.year}"
+                    android:textColor="@color/text_gray"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView"
+                    tools:text="2021" />
+
+                <TextView
+                    android:id="@+id/titleTextView"
+                    style="@style/text.title"
+                    android:layout_width="0dp"
+                    android:text="@{item.title}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/yearTextView"
+                    tools:text="title" />
+
+                <TextView
+                    android:id="@+id/subTitleTextView"
+                    style="@style/text.light"
+                    android:layout_width="0dp"
+                    android:layout_marginTop="4dp"
+                    android:text="@{item.subtitle}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/titleTextView"
+                    tools:text="subTitle" />
+
+                <TextView
+                    android:id="@+id/parentIdTextView"
+                    style="@style/text"
+                    android:layout_width="0dp"
+                    android:layout_marginTop="4dp"
+                    android:text="@{item.isbn10+` > `}"
+                    android:textColor="@color/text_gray"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/subTitleTextView"
+                    tools:text="parentId >" />
+
+                <TextView
+                    android:id="@+id/idTextView"
+                    style="@style/text"
+                    android:layout_width="0dp"
+                    android:layout_marginTop="4dp"
+                    android:text="@{item.isbn13}"
+                    android:textColor="@color/text_gray"
+                    app:layout_constraintStart_toEndOf="@+id/parentIdTextView"
+                    app:layout_constraintTop_toBottomOf="@+id/subTitleTextView"
+                    tools:text="id" />
+
+                <TextView
+                    android:id="@+id/priceTextView"
+                    style="@style/text.title"
+                    android:layout_width="0dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:text="@{item.price}"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@+id/titleTextView"
+                    app:layout_constraintTop_toBottomOf="@+id/idTextView"
+                    tools:text="$3.3" />
+
+                <TextView
+                    android:id="@+id/authorsTextView"
+                    style="@style/text"
+                    android:layout_width="0dp"
+                    android:layout_marginTop="8dp"
+                    android:text="@{item.authors}"
+                    app:layout_constraintEnd_toEndOf="@+id/titleTextView"
+                    app:layout_constraintStart_toStartOf="@+id/titleTextView"
+                    app:layout_constraintTop_toBottomOf="@+id/priceTextView"
+                    tools:text="authors" />
+
+                <TextView
+                    android:id="@+id/publisherTextView"
+                    style="@style/text"
+                    android:layout_width="0dp"
+                    android:layout_marginTop="4dp"
+                    android:text="@{item.publisher}"
+                    app:layout_constraintEnd_toEndOf="@+id/titleTextView"
+                    app:layout_constraintStart_toStartOf="@+id/titleTextView"
+                    app:layout_constraintTop_toBottomOf="@+id/authorsTextView"
+                    tools:text="publisher" />
+
+                <TextView
+                    android:id="@+id/languageTextView"
+                    style="@style/text"
+                    android:layout_width="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="@{item.language}"
+                    app:layout_constraintStart_toStartOf="@+id/titleTextView"
+                    app:layout_constraintTop_toBottomOf="@+id/publisherTextView"
+                    tools:text="language" />
+
+                <TextView
+                    android:id="@+id/pagesTextView"
+                    style="@style/text"
+                    android:layout_width="0dp"
+                    android:layout_marginStart="4dp"
+                    android:text="@{`(`+item.pages+` page)`}"
+                    android:textColor="@color/text_gray"
+                    app:layout_constraintEnd_toEndOf="@+id/titleTextView"
+                    app:layout_constraintStart_toEndOf="@+id/languageTextView"
+                    app:layout_constraintTop_toTopOf="@+id/languageTextView"
+                    tools:text="pages" />
+
+
+                <TextView
+                    android:id="@+id/linkTextView"
+                    style="@style/text"
+                    android:layout_width="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:autoLink="web"
+                    android:background="?attr/selectableItemBackground"
+                    android:text="@{item.url}"
+                    android:textColorLink="@color/colorPrimaryVariant"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/titleTextView"
+                    app:layout_goneMarginTop="16dp"
+                    tools:text="http://www.naver.com" />
+
+                <TextView
+                    android:id="@+id/descTextView"
+                    style="@style/text"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="8dp"
+                    android:text="@{item.desc}"
+                    app:layout_constraintBottom_toTopOf="@+id/linkTextView"
+                    app:layout_constraintEnd_toEndOf="@+id/titleTextView"
+                    app:layout_constraintStart_toStartOf="@+id/titleTextView"
+                    app:layout_constraintTop_toBottomOf="@id/pagesTextView"
+                    tools:text="desc" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+        <androidx.core.widget.ContentLoadingProgressBar
+            android:id="@+id/progressBar"
+            style="?android:progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="visible" />
+    </FrameLayout>
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.hyochan.sendbird.data.BookDetailResponse" />
+    </data>
+</layout>

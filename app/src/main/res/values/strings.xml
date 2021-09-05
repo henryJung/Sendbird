@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">SendBird Test</string>
+
+    <string name="search_hint">검색어를 입력해주세요.</string>
+    <string name="no_data">데이터가 없습니다.</string>
+    <string name="retry">재시도</string>
+
+</resources>

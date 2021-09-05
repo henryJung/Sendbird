@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackground"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:paddingBottom="8dp">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="70dp"
+            android:layout_height="120dp"
+            android:scaleType="centerCrop"
+            android:transitionName="image"
+            app:image="@{item.image}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/arrowImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_arrow_right"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/idTextView"
+            style="@style/text"
+            android:layout_width="0dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@{item.isbn13}"
+            android:textColor="@color/text_gray"
+            app:layout_constraintEnd_toStartOf="@+id/arrowImageView"
+            app:layout_constraintStart_toEndOf="@+id/imageView"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="id" />
+
+        <TextView
+            android:id="@+id/titleTextView"
+            style="@style/text.title"
+            android:layout_width="0dp"
+            android:text="@{item.title}"
+            app:layout_constraintEnd_toEndOf="@+id/idTextView"
+            app:layout_constraintStart_toStartOf="@+id/idTextView"
+            app:layout_constraintTop_toBottomOf="@+id/idTextView"
+            tools:text="title" />
+
+        <TextView
+            android:id="@+id/subTitleTextView"
+            style="@style/text.light"
+            android:layout_width="0dp"
+            android:layout_marginTop="4dp"
+            android:text="@{item.subtitle}"
+            app:layout_constraintEnd_toEndOf="@+id/titleTextView"
+            app:layout_constraintStart_toStartOf="@+id/titleTextView"
+            app:layout_constraintTop_toBottomOf="@+id/titleTextView"
+            tools:text="subTitle" />
+
+        <TextView
+            android:id="@+id/priceTextView"
+            style="@style/text.title"
+            android:layout_width="0dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@{item.price}"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/titleTextView"
+            app:layout_constraintStart_toStartOf="@+id/titleTextView"
+            app:layout_constraintTop_toBottomOf="@+id/subTitleTextView"
+            tools:text="$3.3" />
+
+        <TextView
+            android:id="@+id/linkTextView"
+            style="@style/text"
+            android:layout_marginTop="4dp"
+            android:autoLink="web"
+            android:background="?attr/selectableItemBackground"
+            android:text="@{item.url}"
+            android:textColorLink="@color/colorPrimaryVariant"
+            app:layout_constraintStart_toStartOf="@+id/titleTextView"
+            app:layout_constraintTop_toBottomOf="@+id/priceTextView"
+            tools:text="http://www.naver.com" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.hyochan.sendbird.data.Books" />
+
+    </data>
+</layout>

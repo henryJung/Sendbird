@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="text" parent="Widget.MaterialComponents.TextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textColorHint">@color/text_gray</item>
+    </style>
+
+    <style name="text.light" parent="text">
+        <item name="android:textColor">@color/text_secondary</item>
+    </style>
+
+    <style name="text.title" parent="text">
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="text.edit" parent="text">
+        <item name="colorControlNormal">@android:color/transparent</item>
+        <item name="colorControlHighlight">@android:color/transparent</item>
+        <item name="colorControlActivated">@android:color/transparent</item>
+    </style>
+</resources>
